@@ -1,0 +1,20 @@
+{
+  "name": "WifiFootprint",
+  "version": "1.0.0",
+  "description": "MIT hacking medicine 2021",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/tarikub/Wifi.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/tarikub/WiFiFootprint/issues"
+  },
+  "homepage": "https://github.com/tarikub/WiFiFootprint#readme"
+}
