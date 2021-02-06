@@ -26,4 +26,4 @@ https://wififootprint.web.app/
 
 
 __Building for Digital Health__
-MAT Hackathon 2021
+MIT Hackathon 2021
