@@ -1,7 +1,15 @@
 function initMap() {
+    //NOTE: These are not real hotzones, this is just an example.
+    let sampleHotZones = [
+        { lat: 42.376678, lng: -71.115444 },
+        { lat: 42.376410, lng: -71.118237 },
+        { lat: 42.377048, lng: -71.118698 },
+        { lat: 42.378306, lng: -71.119153 }
+    ]
+    let startCoord = { lat: 42.376678, lng: -71.115444 };
     let map = new google.maps.Map(document.getElementById('map'), {
-        center: { lat: 42.361145, lng: -71.057083 },
-        zoom: 12,
+        center: { lat: startCoord.lat, lng: startCoord.lng },
+        zoom: 15,
         styles: [{
             featureType: 'poi',
             stylers: [{ visibility: 'off' }] // Turn off points of interest.
@@ -13,30 +21,28 @@ function initMap() {
         streetViewControl: false
     });
 
-function makeInfoBox(controlDiv, map) {
-        // Set CSS for the control border.
-        var controlUI = document.createElement('div');
-        controlUI.style.boxShadow = 'rgba(0, 0, 0, 0.298039) 0px 1px 4px -1px';
-        controlUI.style.backgroundColor = '#fff';
-        controlUI.style.border = '2px solid #fff';
-        controlUI.style.borderRadius = '2px';
-        controlUI.style.marginBottom = '22px';
-        controlUI.style.marginTop = '10px';
-        controlUI.style.textAlign = 'center';
-        controlDiv.appendChild(controlUI);
-
-        // Set CSS for the control interior.
-        var controlText = document.createElement('div');
-        controlText.style.color = 'rgb(25,25,25)';
-        controlText.style.fontFamily = 'Roboto,Arial,sans-serif';
-        controlText.style.fontSize = '100%';
-        controlText.style.padding = '6px';
-        controlText.innerText = 'The map shows all clicks made in the last 10 minutes.';
-        controlUI.appendChild(controlText);
+    for (let i = 0; i < sampleHotZones.length; i++) {
+        const sampleWifiNode = sampleHotZones[i];
+        setTimeout(() => {
+            addHeatMap(map, sampleWifiNode.lat, sampleWifiNode.lng, 0, 0.01);
+        }, 3000);
     }
 
-    var infoBoxDiv = document.createElement('div');
-    var infoBox = new makeInfoBox(infoBoxDiv, map);
-    infoBoxDiv.index = 1;
-    map.controls[google.maps.ControlPosition.TOP_CENTER].push(infoBoxDiv);
+
+
+    function addHeatMap(map, lat, lng, latRound, lngRound) {
+        var heatmapData = [];
+        for (let i = 0; i < 12; i++) {
+            let tempLat = lat + latRound;
+            let tempLng = lng + lngRound;
+            heatmapData.push(new google.maps.LatLng(tempLat, tempLng))
+        }
+        var heatmap = new google.maps.visualization.HeatmapLayer({
+            data: heatmapData,
+            radius: 30
+        });
+
+
+        heatmap.setMap(map, startCoord.lat, startCoord.lng);
+    }
 }
