@@ -1,6 +1,6 @@
 function initMap() {
     let startCoord = { lat: 42.376678, lng: -71.115444 };
-    let demoRouters = randomRouterGenerator(50, 10, startCoord.lat, startCoord.lng)
+    let demoRouters = randomRouterGenerator(25, 10, startCoord.lat, startCoord.lng)
 
 
     let map = new google.maps.Map(document.getElementById('map'), {
@@ -19,18 +19,7 @@ function initMap() {
 
     for (let i = 0; i < demoRouters.length; i++) {
         const router = demoRouters[i];
-        addHeatMap(map, router);
+        addHeatMap(map, router, startCoord);
     }
 
-    function addHeatMap(map, router) {
-        var heatmapData = [];
-        heatmapData.push(new google.maps.LatLng(router.lat, router.lng))
-        var heatmap = new google.maps.visualization.HeatmapLayer({
-            data: heatmapData,
-            radius: router.signalIntensity,
-            maxIntensity: router.signalIntensity
-        });
-
-        heatmap.setMap(map, startCoord.lat, startCoord.lng);
-    }
 }

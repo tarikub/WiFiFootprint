@@ -8,16 +8,18 @@ Wifi tracing app to alert students to avoid areas where positive cases have been
 ![WifiFootprint](wififootprint.png)
 
 __Technology Used:__
-- Google cloud
-        -  Firebase hosting
-        -  Google Map Api
+* Google cloud
+   * Firebase hosting
+   * Google Map Api
 
 __Planned Integration:__
 - Firebase ML
 
 __LIVE DEMO:__
 https://wififootprint.web.app/
-NOTE: The locations on the map are only added for demo. The locations are not real COVID-19 hotzones.
+
+- __NOTE__: The locations on the map are only added for demo. The locations are not real COVID-19 hotzones.
+- Heat map is generated using 50 randomly selected router geo-locations around Cambridge, MA.
 
 
 __Building for Digital Health__
