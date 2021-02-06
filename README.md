@@ -9,11 +9,14 @@ Wifi tracing app to alert students to avoid areas where positive cases have been
 
 __Technology Used:__
 * Google cloud
-   * Firebase hosting
-   * Google Map Api
+   * [Firebase hosting](https://firebase.google.com/products/hosting)
+   * [Google Map Platforms](https://developers.google.com/maps/documentation)
 
 __Planned Integration:__
-- Firebase ML
+- [Firebase ML](https://firebase.google.com/products/ml)
+- [Cloud Functions for Firebase](https://firebase.google.com/docs/functions)
+- [Firebase Realtime Database](https://firebase.google.com/products/realtime-database)
+- [WIFITrace](https://wifitrace.github.io/)
 
 __LIVE DEMO:__
 https://wififootprint.web.app/
