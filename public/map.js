@@ -21,16 +21,15 @@ function initMap() {
         streetViewControl: false
     });
 
+    let maxIntensity = [10, 30, 100, 200];
     for (let i = 0; i < sampleHotZones.length; i++) {
         const sampleWifiNode = sampleHotZones[i];
         setTimeout(() => {
-            addHeatMap(map, sampleWifiNode.lat, sampleWifiNode.lng, 0, 0.01);
+            addHeatMap(map, sampleWifiNode.lat, sampleWifiNode.lng, 0, 0.01, maxIntensity[i]);
         }, 3000);
     }
 
-
-
-    function addHeatMap(map, lat, lng, latRound, lngRound) {
+    function addHeatMap(map, lat, lng, latRound, lngRound, maxIntensity) {
         var heatmapData = [];
         for (let i = 0; i < 12; i++) {
             let tempLat = lat + latRound;
@@ -39,9 +38,9 @@ function initMap() {
         }
         var heatmap = new google.maps.visualization.HeatmapLayer({
             data: heatmapData,
-            radius: 30
+            radius: 15,
+            maxIntensity: maxIntensity
         });
-
 
         heatmap.setMap(map, startCoord.lat, startCoord.lng);
     }
