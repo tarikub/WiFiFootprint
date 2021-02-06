@@ -5,7 +5,7 @@ function initMap() {
 
     let map = new google.maps.Map(document.getElementById('map'), {
         center: { lat: startCoord.lat, lng: startCoord.lng },
-        zoom: 13,
+        zoom: 15.5,
         styles: [{
             featureType: 'poi',
             stylers: [{ visibility: 'off' }] // Turn off points of interest.
@@ -20,6 +20,7 @@ function initMap() {
     for (let i = 0; i < demoRouters.length; i++) {
         const router = demoRouters[i];
         addHeatMap(map, router, startCoord);
+        addMarker(map, router);
     }
 
 }

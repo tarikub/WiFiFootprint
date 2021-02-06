@@ -13,8 +13,8 @@ let randomRouterGenerator = (routers, radius, lat, lng) => {
         let rnd = Math.random();
         let w = radius * Math.sqrt(rnd);
         let t = 2 * Math.PI * rnd;
-        let x = w * Math.cos(t) / 1000;
-        let y = w * Math.tan(t) / 1000;
+        let x = w * Math.cos(t) / 10000;
+        let y = w * Math.tan(t) / 10000;
         let r = new router();
         r.lat = lat + x;
         r.lng = lng + y;
